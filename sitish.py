@@ -258,7 +258,6 @@ def get_current_day_and_week(arg):
         for start_time, end_time in allowed_time_ranges:
              if start_time <= current_time <= end_time:
                         return("sitish anoixth")
-                        break
              else:
                      return("sitish kleisth")
            
