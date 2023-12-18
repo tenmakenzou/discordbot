@@ -19,7 +19,7 @@ async def on_ready():
 @client.command()
 async def hello(ctx):
     await ctx.send("test")
-""""
+"""
 
 @client.command()
 async def sitish(ctx,arg):
