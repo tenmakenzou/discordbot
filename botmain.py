@@ -34,7 +34,7 @@ async def helpsitish(ctx):
     embed = discord.Embed(
       colour=discord.Colour.random(),       
      title="Bot Commands")  
-    embed.set_author(name="Creator : tenma_kenzo_",url = "https://ih0.redbubble.net/image.4837681105.5862/raf,360x360,075,t,fafafa:ca443f4786.jpg")
+    embed.set_author(name="Creator : tenma_kenzo_ + BladeZ (ez)",url = "https://ih0.redbubble.net/image.4837681105.5862/raf,360x360,075,t,fafafa:ca443f4786.jpg")
     embed.set_thumbnail(url="https://ih0.redbubble.net/image.4837681105.5862/raf,360x360,075,t,fafafa:ca443f4786.jpg")
     embed.add_field(name="clear [num]" , value="")
     embed.add_field(name="sitish tommorow" , value ="")
@@ -53,4 +53,3 @@ Will be brought back once permissions for moderators are included"""
 
 
 client.run('MTE4MDE3OTIxNTExOTgxODc3Mw.Gdej6D.qj7Zr9gYXTTH3WGxje3vjtRnKDFpbMb13Sl82w')
-
