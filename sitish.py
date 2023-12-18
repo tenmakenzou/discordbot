@@ -195,7 +195,7 @@ def get_current_day_and_week(arg):
                return(f"Food for Week 1  : {week1}")
 
            elif week_number == 2:
-                eturn(f"Food for Week 2  : {week2}")
+                return(f"Food for Week 2  : {week2}")
                 
            elif week_number == 3:
                return (f"Food for Week 3  : {week3}\n")
