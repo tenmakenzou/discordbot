@@ -17,7 +17,7 @@ client = commands.Bot(command_prefix = '/',intents=intents)
 @client.event
 async def on_ready():
     print("Bot is running!")
-
+    changeweek("reset")
 
 @client.command()
 async def hello(ctx):
