@@ -10,16 +10,19 @@ client = commands.Bot(command_prefix = '/',intents=intents)
 
 
 
-##
+@commands.cooldown(rate=1, per=5, type=commands.BucketType.user) # 5 second cooldown
+
+
+
 @client.event
 async def on_ready():
     print("Bot is running!")
 
-"""
+
 @client.command()
 async def hello(ctx):
     await ctx.send("test")
-"""
+
 
 @client.command()
 async def sitish(ctx,arg):
@@ -30,7 +33,7 @@ async def sitish(ctx,arg):
 @client.command()
 async def helpsitish(ctx):
 
-#https://www.youtube.com/watch?v=wILcnFaO2lk&ab_channel=RichardSchwabe
+
     embed = discord.Embed(
       colour=discord.Colour.random(),       
      title="Bot Commands")  
@@ -43,7 +46,20 @@ async def helpsitish(ctx):
     embed.add_field(name="sitish schedule" , value = "")
     embed.add_field(name="sitish [Day of current week]",value = "['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']")
     await ctx.send(embed=embed)
+
+
+
+
+@client.command()
+async def changesitish(ctx , arg):
+    if client.user.id == 794354121099837471:
+        await ctx.send(changeweek(arg))
+
+
 """
+
+
+
 @client.command()
 async def clear (ctx, limit: int):
         await ctx.channel.purge(limit=limit+1)

@@ -142,28 +142,33 @@ week4 = {
 
 
 
-n1 = '\n'
+
+
+global week_number
+
+
 
 def get_current_day_and_week(arg):
     
     
-    
+    global week_number
+  
     
     choice = arg
     
     current_date = datetime.now()
-
+    #week_number = (current_date.day - 1) // 7 + 1 #Current_week_number
     
 
     day  = str(current_date.day)
     month = str(current_date.month)
     final = day+"/"+month
     
-    day_of_week = current_date.weekday()
+    day_of_week = current_date.weekday() # Day of week
     
     days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     
-    week_number = (current_date.day - 1) // 7 + 1
+  
     
     #print(f'Today is {days_of_week[day_of_week]}. It is week no:{week_number} of the month.')
     
@@ -261,8 +266,29 @@ def get_current_day_and_week(arg):
              else:
                      return("sitish kleisth")
            
+def changeweek(opt):
 
-
-#get_current_day_and_week("today")
-
+    
+    global week_number
+     
+    
+    if opt =="reset":
+        current_date = datetime.now()
+        week_number = (current_date.day - 1) // 7 + 1 #Current_week_number
+    
+    
+    
+    if opt == "+":
+        week_number += 1
+   
+    if opt == "-":
+        week_number -= 1
+ 
+        
+    if week_number > 4 or week_number <1:
+        return ("reset the week because currently its :",week_number)
+          
+#changeweek("reset"); #debugging
+#get_current_day_and_week("today") #debugging
+#changeweek("reset"); debugging
 
