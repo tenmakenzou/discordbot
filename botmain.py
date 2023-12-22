@@ -1,6 +1,7 @@
 import discord
 from sitish import *
-from discord.ext import commands
+from discord.ext import commands 
+from discord.ext.commands import has_permissions, CheckFailure
 
 
 
@@ -18,14 +19,16 @@ client = commands.Bot(command_prefix = '/',intents=intents)
 async def on_ready():
     print("Bot is running!")
     changeweek("reset")
-
+    print("Week has been reset!")
+    
+    
 @client.command()
 async def hello(ctx):
     await ctx.send("test")
 
 
 @client.command()
-async def sitish(ctx,arg):
+async def s(ctx,arg):
      
         await ctx.send(get_current_day_and_week(arg))
      
@@ -40,31 +43,29 @@ async def helpsitish(ctx):
     embed.set_author(name="Creator : tenma_kenzo_ + BladeZ (ez)",url = "https://ih0.redbubble.net/image.4837681105.5862/raf,360x360,075,t,fafafa:ca443f4786.jpg")
     embed.set_thumbnail(url="https://ih0.redbubble.net/image.4837681105.5862/raf,360x360,075,t,fafafa:ca443f4786.jpg")
     embed.add_field(name="clear [num]" , value="")
-    embed.add_field(name="sitish tommorow" , value ="")
-    embed.add_field(name="sitish today",value ="")
-    embed.add_field(name="sitish weekly" , value ="")
-    embed.add_field(name="sitish schedule" , value = "")
-    embed.add_field(name="sitish [Day of current week]",value = "['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']")
+    embed.add_field(name="s tommorow" , value ="")
+    embed.add_field(name="s today",value ="")
+    embed.add_field(name="s weekly" , value ="")
+    embed.add_field(name="s schedule" , value = "")
+    embed.add_field(name="s [Day of current week]",value = "['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']")
     await ctx.send(embed=embed)
 
 
 
 
-@client.command()
+@client.command(pass_context=True)
+@has_permissions(administrator=True)
 async def changesitish(ctx , arg):
-    if client.user.id == 794354121099837471:
         await ctx.send(changeweek(arg))
+        await ctx.send("week changed!")
+    
 
 
-"""
-
-
-
-@client.command()
+@client.command(pass_context=True)
+@has_permissions(administrator=True) #clear messages
 async def clear (ctx, limit: int):
         await ctx.channel.purge(limit=limit+1)
 
-Will be brought back once permissions for moderators are included"""
 
 
 
