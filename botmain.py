@@ -11,7 +11,7 @@ client = commands.Bot(command_prefix = '/',intents=intents)
 
 
 
-@commands.cooldown(rate=1, per=5, type=commands.BucketType.user) # 5 second cooldown
+@commands.cooldown(1, 5, type=commands.BucketType.user) # 5 second cooldown
 
 
 
@@ -66,7 +66,10 @@ async def changesitish(ctx , arg):
 async def clear (ctx, limit: int):
         await ctx.channel.purge(limit=limit+1)
 
-
+@client.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.CommandNotFound):
+        await ctx.send("Command does not exist.")
 
 
 client.run('MTE4MDE3OTIxNTExOTgxODc3Mw.Gdej6D.qj7Zr9gYXTTH3WGxje3vjtRnKDFpbMb13Sl82w')
