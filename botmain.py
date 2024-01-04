@@ -3,6 +3,8 @@ from sitish import *
 from discord.ext import commands 
 from discord.ext.commands import has_permissions, CheckFailure
 
+#from help_cog import *
+#from music_cog import *
 
 
 
@@ -29,9 +31,26 @@ async def hello(ctx):
 
 @client.command()
 async def s(ctx,arg):
-     
-        await ctx.send(get_current_day_and_week(arg))
-     
+
+        if arg == "weekly":
+            
+
+             """
+             file = discord.File(get_current_day_and_week(arg))
+             embed = discord.Embed( colour=discord.Colour.random())  
+             embed.set_image(url="attachment://filename.png")
+             embed.set_image(url=file)
+
+             await ctx.send(embed=embed, file=file)
+            """
+             await ctx.send(file = discord.File(get_current_day_and_week(arg)))
+
+        else:
+            await ctx.send(get_current_day_and_week(arg))
+
+
+
+
 
 @client.command()
 async def helpsitish(ctx):
@@ -43,7 +62,7 @@ async def helpsitish(ctx):
     embed.set_author(name="Creator : tenma_kenzo_ + BladeZ (ez)",url = "https://ih0.redbubble.net/image.4837681105.5862/raf,360x360,075,t,fafafa:ca443f4786.jpg")
     embed.set_thumbnail(url="https://ih0.redbubble.net/image.4837681105.5862/raf,360x360,075,t,fafafa:ca443f4786.jpg")
     embed.add_field(name="clear [num]" , value="")
-    embed.add_field(name="s tommorow" , value ="")
+    embed.add_field(name="s tomorrow" , value ="")
     embed.add_field(name="s today",value ="")
     embed.add_field(name="s weekly" , value ="")
     embed.add_field(name="s schedule" , value = "")
@@ -71,5 +90,13 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
         await ctx.send("Command does not exist.")
 
+"""
+@client.event
+async def helpmusic(ctx):
+        await ctx.send(set_message())
+"""
 
-client.run('MTE4MDE3OTIxNTExOTgxODc3Mw.Gdej6D.qj7Zr9gYXTTH3WGxje3vjtRnKDFpbMb13Sl82w')
+f = open("token.txt","r")
+token = f.readline()
+client.run(str(token))
+f.close()

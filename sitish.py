@@ -197,17 +197,17 @@ def get_current_day_and_week(arg):
     
     if choice == "weekly":
            if week_number == 1:
-               return(f"Food for Week 1  : {week1}")
+               return("week1.jpg")
 
            elif week_number == 2:
-                return(f"Food for Week 2  : {week2}")
+                return("week2.jpg")
                 
            elif week_number == 3:
-               return (f"Food for Week 3  : {week3}\n")
+               return("week3.jpg")
              
            else:
                 
-               return(f"Food for Week 4 : {week4}")
+               return("week4.jpg")
     
     #Mera trexousas ebdomadas
     
