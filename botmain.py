@@ -3,8 +3,6 @@ from sitish import *
 from discord.ext import commands 
 from discord.ext.commands import has_permissions, CheckFailure
 
-#from help_cog import *
-#from music_cog import *
 
 
 
@@ -20,7 +18,7 @@ client = commands.Bot(command_prefix = '/',intents=intents)
 @client.event
 async def on_ready():
     print("Bot is running!")
-    changeweek("reset")
+    changeweek(0)
     print("Week has been reset!")
     
     
@@ -75,9 +73,9 @@ async def helpsitish(ctx):
 @client.command(pass_context=True)
 @has_permissions(administrator=True)
 async def changesitish(ctx , arg):
-        await ctx.send(changeweek(arg))
-        await ctx.send("week changed!")
-    
+        
+        await ctx.send(changeweek(int(arg)))
+        
 
 
 @client.command(pass_context=True)

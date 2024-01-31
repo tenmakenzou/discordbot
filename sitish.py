@@ -148,6 +148,7 @@ global week_number
 
 
 
+
 def get_current_day_and_week(arg):
     
     
@@ -254,44 +255,40 @@ def get_current_day_and_week(arg):
     
     
     # needs fixing
-    """    
+    
     if choice == "schedule":
-        allowed_time_ranges = [
-                (time(7, 0), time(9, 0)),       
-                (time(12, 30), time(16, 0)),     
-                (time(18, 0), time(20, 0))       
-            ]
-        current_datetime = datetime.now()
-        current_time = current_datetime.time()
-            
-        for start_time, end_time in allowed_time_ranges:
-             if start_time <= current_time <= end_time:
-                        return("sitish anoixth")
-             else:
-                     return("sitish kleisth")
-    """    
-def changeweek(opt):
+           
+         
+         current_hour = current_date.hour
+        # current_hour = current_date.strftime("%H:%M")
+         print(current_hour)
+         
+         #opening_time_start = time(5, 0)  # 5:00 AM
+         #opening_time_end = time(21, 0)    # 8:00 AM
+
+         if ((7 >= current_hour <= 9) or (12>= current_hour <= 16) or (18>= current_hour <= 20)):
+            return("Sitish anoixth")
+         else:
+            return("Sitish kleisth")
 
     
+def changeweek(opt):
+
     global week_number
-     
     
-    if opt =="reset":
+    
+    if opt ==0:
         current_date = datetime.now()
         week_number = (current_date.day - 1) // 7 + 1 #Current_week_number
+        
+        return ("Current week has been reset")
     
     
-    
-    if opt == "+":
-        week_number += 1
-   
-    if opt == "-":
-        week_number -= 1
+    if opt <=4 and opt >=1 :
+        week_number = opt
+        return ("Current week has been changed to :::",week_number)
  
         
-    if week_number > 4 or week_number <1:
-        return ("reset the week because currently its :",week_number)
-          
 #changeweek("reset"); #debugging
 #get_current_day_and_week("today") #debugging
 #changeweek("reset"); debugging
