@@ -254,22 +254,20 @@ def get_current_day_and_week(arg):
         
     
     
-    # needs fixing
+   
     
     if choice == "schedule":
            
          
          current_hour = current_date.hour
-        # current_hour = current_date.strftime("%H:%M")
-         print(current_hour)
+         current_time = float(current_date.strftime("%H.%M"))
+         print(current_time)
          
-         #opening_time_start = time(5, 0)  # 5:00 AM
-         #opening_time_end = time(21, 0)    # 8:00 AM
 
-         if ((7 >= current_hour <= 9) or (12>= current_hour <= 16) or (18>= current_hour <= 20)):
-            return("Sitish anoixth")
+         if ((7.30>= current_time <= 9) or (12.30>= current_time <= 15.40) or (18>= current_time <= 20.30)):
+            return("H sitish anoixth")
          else:
-            return("Sitish kleisth")
+            return("H sitish kleisth")
 
     
 def changeweek(opt):
@@ -292,4 +290,4 @@ def changeweek(opt):
 #changeweek("reset"); #debugging
 #get_current_day_and_week("today") #debugging
 #changeweek("reset"); debugging
-
+get_current_day_and_week("schedule")
