@@ -261,8 +261,6 @@ def get_current_day_and_week(arg):
          
          current_hour = current_date.hour
          current_time = float(current_date.strftime("%H.%M"))
-         print(current_time)
-         
 
          if ((7.30>= current_time <= 9) or (12.30>= current_time <= 15.40) or (18>= current_time <= 20.30)):
             return("H sitish anoixth")
@@ -287,7 +285,3 @@ def changeweek(opt):
         return ("Current week has been changed to :::",week_number)
  
         
-#changeweek("reset"); #debugging
-#get_current_day_and_week("today") #debugging
-#changeweek("reset"); debugging
-get_current_day_and_week("schedule")

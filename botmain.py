@@ -86,7 +86,7 @@ async def clear (ctx, limit: int):
 @client.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
-        await ctx.send("Command does not exist.")
+        await ctx.send("Command does not exist use [/helpsitish]")
 
 """
 @client.event
