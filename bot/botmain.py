@@ -36,8 +36,17 @@ async def s(ctx,arg):
              await ctx.send(file = discord.File(get_current_day_and_week(arg)))
 
         else:
-            await ctx.send(get_current_day_and_week(arg))
+           # await ctx.send(get_current_day_and_week(arg))
+            
+            embed = discord.Embed(colour=000000,title="")  
+        
+            embed.set_author(name="Creator : tenma_kenzo_ + BladeZ (ez)" , url = "")
 
+            embed.set_thumbnail(url="https://www.artmajeur.com/medias/standard/t/a/tatjana-siadova/artwork/13448606_2953a.jpg")
+            embed.add_field(name=(get_current_day_and_week(arg)) , value=" ",inline=False)
+            embed.set_footer(text=f"Requested by <@{ctx.author}>",icon_url=ctx.author.avatar)
+            
+            await ctx.send(embed=embed)
 
 
 
