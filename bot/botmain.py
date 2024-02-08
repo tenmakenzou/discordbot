@@ -22,7 +22,6 @@ client.remove_command("help")
 @client.event
 async def on_ready():
     print("Bot is running!")
-    changeweek(0)
     print("Week has been reset!")
     await client.change_presence(activity=discord.Game(name="/help"))
     
