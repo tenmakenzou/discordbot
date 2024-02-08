@@ -55,13 +55,7 @@ bonus = 0
 
 
 
-def get_current_day_and_week(arg):
-    
-    
-    global bonus
-  
-    
-    choice = arg
+def get_current_day_and_week(choice):
     
     current_date = datetime.now()
 
@@ -111,12 +105,10 @@ def get_current_day_and_week(arg):
                return("week3.jpg")
              
            else:
-                
                return("week4.jpg")
    
     if choice in days_of_week:
-        if week_number == 1:
-            return(f"Food for {choice}  : {week[choice]}")
+        return(f"Food for {choice}  : {week[choice]}")
 
     
 
@@ -172,8 +164,6 @@ def get_current_day_and_week(arg):
         return("Invalid arguement")
     
 def changeweek(opt):
-
-    global bonus
     
     if opt == 1:
         bonus += 1
