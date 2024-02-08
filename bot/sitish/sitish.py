@@ -188,14 +188,14 @@ def get_current_day_and_week(arg):
         else:
             if current_time < 7.30 or current_time >20.30:
                 next_opening_time = "7:30"
-                return (f"Η σιτίση είναι κλείστη , ανοίγει στις : {next_opening_time} και το γεύμα είναι :\n {week[x][0]}")
+                return (f"Η σιτίση είναι κλείστη , ανοίγει στις : {next_opening_time} και εχει :\n {week[x][0]}")
             elif current_time < 12.30:
                 next_opening_time = "12:30"
-                return (f"Η σιτίση είναι κλείστη , ανοίγει στις : {next_opening_time} και το γεύμα είναι :\n {week[x][1]}")
+                return (f"Η σιτίση είναι κλείστη , ανοίγει στις : {next_opening_time} και εχει :\n {week[x][1]}")
 
             elif current_time < 18.00:
                 next_opening_time = "18:00"
-                return (f"Η σιτίση είναι κλείστη , ανοίγει στις : {next_opening_time} και το γεύμα είναι :\n {week[x][2]}")
+                return (f"Η σιτίση είναι κλείστη , ανοίγει στις : {next_opening_time} και εχει :\n {week[x][2]}")
 
 
     if (not choice == "tomorrow" and not choice == "today" and not choice == "open" and not choice == "weekly"):
