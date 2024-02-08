@@ -60,7 +60,6 @@ async def help(ctx):
     embed.set_author(name="Creator : tenma_kenzo_ + BladeZ (ez)" , url = "")
 
     embed.set_thumbnail(url="https://www.artmajeur.com/medias/standard/t/a/tatjana-siadova/artwork/13448606_2953a.jpg")
-    embed.add_field(name="/clear [n]" , value="n = number of messages",inline=False)
     embed.add_field(name="/s tomorrow" , value ="Tomorrow's schedule",inline=False)
     embed.add_field(name="/s today",value ="Today's schedule",inline=False)
     embed.add_field(name="/s weekly" , value ="Weeekly  schedule",inline=False)
