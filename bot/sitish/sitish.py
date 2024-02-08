@@ -79,24 +79,24 @@ def get_current_day_and_week(arg):
     
     x = days_of_week[day_of_week]
 
-    #Today's food
     
+    
+    if week_number == 1:
+        week = week1
+
+    elif week_number == 2:
+        week = week2
+            
+    elif week_number == 3:
+        week = week3
+         
+    else:
+       week = week4
+
           
     if choice == "today":
-        
-        
-        
-        if week_number == 1:
-            return(f"Food for {x} [{final}] : \n\n{week1[x][0]}\n\n{week1[x][1]}\n\n{week1[x][2]}")
+            return(f"Food for {x} [{final}] : \n\n{week[x][0]}\n\n{week[x][1]}\n\n{week[x][2]}")
 
-        elif week_number == 2:
-             return(f"Food for {x} [{final}] : \n\n{week2[x][0]}\n\n{week2[x][1]}\n\n{week2[x][2]}")
-            
-        elif week_number == 3:
-            return(f"Food for {x} [{final}] : \n\n{week3[x][0]}\n\n{week3[x][1]}\n\n{week3[x][2]}")
-                     
-        else:      
-            return(f"Food for {x} [{final}] : \n\n{week4[x][0]}\n\n{week4[x][1]}\n\n{week4[x][2]}")
             
     #ebdomadiaio 
     
@@ -113,26 +113,13 @@ def get_current_day_and_week(arg):
            else:
                 
                return("week4.jpg")
-    
-    #Mera trexousas ebdomadas
-    
+   
     if choice in days_of_week:
         if week_number == 1:
-            return(f"Food for {choice}  : {week1[choice]}")
-
-        elif week_number == 2:
-            return(f"Food for {choice}  : {week2[choice]}")
-            
-        elif week_number == 3:
-            return(f"Food for {choice}  : {week3[choice]}")
-         
-        else:
-            
-            return(f"Food for {choice}  : {week4[choice]}")
+            return(f"Food for {choice}  : {week[choice]}")
 
     
-    
-    #fai gia thn epomenh mera
+
     if choice == "tomorrow":
         
         day  = str(current_date.day + 1)
@@ -141,7 +128,7 @@ def get_current_day_and_week(arg):
         
           
         if week_number == 1:
-            return(f"Food for {x} [{final}] : \n\n{week2[x][0]}\n\n{week1[x][1]}\n\n{week1[x][2]}")
+            return(f"Food for {x} [{final}] : \n\n{week1[x][0]}\n\n{week1[x][1]}\n\n{week1[x][2]}")
 
         elif week_number == 2:
             return(f"Food for {x} [{final}] : \n\n{week2[x][0]}\n\n{week2[x][1]}\n\n{week2[x][2]}")
@@ -161,19 +148,6 @@ def get_current_day_and_week(arg):
          
         current_hour = current_date.hour
         current_time = float(current_date.strftime("%H.%M"))
-
-        if week_number == 1:
-            week = week1
-
-        elif week_number == 2:
-            week = week2
-            
-        elif week_number == 3:
-            week = week3
-         
-        else:
-            
-            week = week4
 
 
         
