@@ -77,6 +77,7 @@ def get_current_day_and_week(arg):
     
   
     
+    x = days_of_week[day_of_week]
 
     #Today's food
     
@@ -84,19 +85,18 @@ def get_current_day_and_week(arg):
     if choice == "today":
         
         
-        x = days_of_week[day_of_week]
         
         if week_number == 1:
-            return(f"Food for {x} [{final}] : \n\n{week2[x][0]}\n\n{week2[x][1]}\n\n{week2[x][2]}")
+            return(f"Food for {x} [{final}] : \n\n{week1[x][0]}\n\n{week1[x][1]}\n\n{week1[x][2]}")
 
         elif week_number == 2:
              return(f"Food for {x} [{final}] : \n\n{week2[x][0]}\n\n{week2[x][1]}\n\n{week2[x][2]}")
             
         elif week_number == 3:
-            return(f"Food for {x} [{final}] : \n\n{week2[x][0]}\n\n{week2[x][1]}\n\n{week2[x][2]}")
+            return(f"Food for {x} [{final}] : \n\n{week3[x][0]}\n\n{week3[x][1]}\n\n{week3[x][2]}")
                      
         else:      
-            return(f"Food for {x} [{final}] : \n\n{week2[x][0]}\n\n{week2[x][1]}\n\n{week2[x][2]}")
+            return(f"Food for {x} [{final}] : \n\n{week4[x][0]}\n\n{week4[x][1]}\n\n{week4[x][2]}")
             
     #ebdomadiaio 
     
@@ -143,19 +143,18 @@ def get_current_day_and_week(arg):
         final = day+"/"+month
     
         
-        x = days_of_week[day_of_week]
           
         if week_number == 1:
-            return(f"Food for {x} [{final}] : \n\n{week2[x][0]}\n\n{week2[x][1]}\n\n{week2[x][2]}")
+            return(f"Food for {x} [{final}] : \n\n{week2[x][0]}\n\n{week1[x][1]}\n\n{week1[x][2]}")
 
         elif week_number == 2:
             return(f"Food for {x} [{final}] : \n\n{week2[x][0]}\n\n{week2[x][1]}\n\n{week2[x][2]}")
        
         elif week_number == 3:
-            return(f"Food for {x} [{final}] : \n\n{week2[x][0]}\n\n{week2[x][1]}\n\n{week2[x][2]}")
+            return(f"Food for {x} [{final}] : \n\n{week3[x][0]}\n\n{week3[x][1]}\n\n{week3[x][2]}")
                      
         else:      
-             return(f"Food for {x} [{final}] : \n\n{week2[x][0]}\n\n{week2[x][1]}\n\n{week2[x][2]}")
+             return(f"Food for {x} [{final}] : \n\n{week4[x][0]}\n\n{week4[x][1]}\n\n{week4[x][2]}")
         
     
     
@@ -167,17 +166,36 @@ def get_current_day_and_week(arg):
         current_hour = current_date.hour
         current_time = float(current_date.strftime("%H.%M"))
 
+        if week_number == 1:
+            week = week1
+
+        elif week_number == 2:
+            week = week2
+            
+        elif week_number == 3:
+            week = week3
+         
+        else:
+            
+            week = week4
+
+
+        
+
         if ((7.30 <= current_time <= 9.0) or (12.30 <= current_time <= 15.40) or (18.00 <= current_time <= 20.30)):
             return("Η σιτίση ειναι ανοιχτή")
             
         else:
             if current_time < 7.30 or current_time >20.30:
                 next_opening_time = "7:30"
+                return (f"Η σιτίση είναι κλείστη και ανοίγει στις : {next_opening_time} και το γεύμα είναι :\n {week[x][0]}")
             elif current_time < 12.30:
                 next_opening_time = "12:30"
+                return (f"Η σιτίση είναι κλείστη και ανοίγει στις : {next_opening_time} και το γεύμα είναι :\n {week[x][1]}")
+
             elif current_time < 18.00:
                 next_opening_time = "18:00"
-            return( "Η σιτίση είναι κλείστη και ανοίγει στις : " + next_opening_time)
+                return (f"Η σιτίση είναι κλείστη και ανοίγει στις : {next_opening_time} και το γεύμα είναι :\n {week[x][2]}")
 
 
     if (not choice == "tomorrow" and not choice == "today" and not choice == "open" and not choice == "weekly"):
