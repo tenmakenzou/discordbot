@@ -187,13 +187,13 @@ def get_current_day_and_week(arg):
             return(f"Food for {days_of_week[day_of_week]} [{final}] : \n {week1[days_of_week[day_of_week]]}")
 
         elif week_number == 2:
-            return(f"Food for {days_of_week[day_of_week]} [{final}] : \n {week2[days_of_week[day_of_week]]}")
+            return(f"Food for {days_of_week[day_of_week]} [{final}] : \n{week2[days_of_week[day_of_week]]}")
                         
         elif week_number == 3:
-            return (f"Food for {days_of_week[day_of_week]} [{final}] : \n {week3[days_of_week[day_of_week]]}")
+            return (f"Food for {days_of_week[day_of_week]} [{final}] : \n{week3[days_of_week[day_of_week]]}")
                      
         else:      
-             return(f"Food for {days_of_week[day_of_week]} [{final}] : \n {week4[days_of_week[day_of_week]]}")
+             return(f"Food for {days_of_week[day_of_week]} [{final}] : \n{week4[days_of_week[day_of_week]]}")
             
     #ebdomadiaio 
     
@@ -257,7 +257,7 @@ def get_current_day_and_week(arg):
     
    
     
-    if choice == "open":
+    if choice == "schedule":
            
          
         current_hour = current_date.hour
@@ -291,4 +291,3 @@ def changeweek(opt):
         week_number = opt
         return ("Current week has been changed to :",week_number)
  
-
