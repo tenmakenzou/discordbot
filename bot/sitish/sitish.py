@@ -48,8 +48,8 @@ week4 = {
 
 
 
-
-global week_number
+global bonus 
+bonus = 0
 
 
 
@@ -57,12 +57,14 @@ global week_number
 def get_current_day_and_week(arg):
     
     
-    global week_number
+    global bonus
   
     
     choice = arg
     
     current_date = datetime.now()
+
+    week_number = (current_date.day - 1) // 7 + 1 #Current_week_number
 
     day  = str(current_date.day)
     month = str(current_date.month)
@@ -182,17 +184,18 @@ def get_current_day_and_week(arg):
     
 def changeweek(opt):
 
-    global week_number
+    global bonus
     
+    if opt == 1:
+        bonus += 1
+        return ("Current week has been increased")
     
-    if opt == 0:
-        current_date = datetime.now()
-        week_number = (current_date.day - 1) // 7 + 1 #Current_week_number
-        
-        return ("Current week has been reset")
+    if opt == -1:
+       
+        bonus -= 1
+        return ("Current week has been decreased")
     
-    
-    if opt <= 4 and opt >= 1 :
-        week_number = opt
-        return ("Current week has been changed to :"+week_number)
  
+     
+    
+    
