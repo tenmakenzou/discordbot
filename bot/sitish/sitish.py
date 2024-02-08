@@ -174,6 +174,8 @@ def changeweek(opt):
         bonus -= 1
         return ("Current week has been decreased")
     
+    if bonus > 4 or bonus < 1 :
+        bonus = 0
  
      
     
