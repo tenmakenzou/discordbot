@@ -176,7 +176,7 @@ def get_current_day_and_week(arg):
             return( "Η σιτίση είναι κλείστη και ανοίγει στις : " + next_opening_time)
 
 
-    if choice != "tomorrow" and != "today" and != "open" and != "weekly" :
+    if (choice == "tomorrow" and not choice == "today" and not choice == "open" and not choice == "weekly"):
         return("Invalid arguement")
     
 def changeweek(opt):
