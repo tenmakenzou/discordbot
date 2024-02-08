@@ -12,7 +12,7 @@ from discord.ext.commands import has_permissions, CheckFailure
 
 intents = discord.Intents.all()
 client = commands.Bot(command_prefix = '/',intents=intents)
-
+client.remove_command("help")
 
 
 @commands.cooldown(1, 5, type=commands.BucketType.user) # 5 second cooldown
@@ -24,27 +24,15 @@ async def on_ready():
     print("Bot is running!")
     changeweek(0)
     print("Week has been reset!")
+    await client.change_presence(activity=discord.Game(name="/help"))
     
-    
-@client.command()
-async def hello(ctx):
-    await ctx.send("test")
-
 
 @client.command()
+@commands.cooldown(1, 5, type=commands.BucketType.user) # 5 second cooldown
+
 async def s(ctx,arg):
 
         if arg == "weekly":
-            
-
-             """
-             file = discord.File(get_current_day_and_week(arg))
-             embed = discord.Embed( colour=discord.Colour.random())  
-             embed.set_image(url="attachment://filename.png")
-             embed.set_image(url=file)
-
-             await ctx.send(embed=embed, file=file)
-            """
              await ctx.send(file = discord.File(get_current_day_and_week(arg)))
 
         else:
@@ -55,20 +43,22 @@ async def s(ctx,arg):
 
 
 @client.command()
-async def sh(ctx):
+async def help(ctx):
 
 
-    embed = discord.Embed(
-      colour=discord.Colour.random(),       
-     title="Bot Commands")  
-    embed.set_author(name="Creator : tenma_kenzo_ + BladeZ (ez)",url = "https://ih0.redbubble.net/image.4837681105.5862/raf,360x360,075,t,fafafa:ca443f4786.jpg")
-    embed.set_thumbnail(url="https://ih0.redbubble.net/image.4837681105.5862/raf,360x360,075,t,fafafa:ca443f4786.jpg")
-    embed.add_field(name="clear [num]" , value="")
-    embed.add_field(name="s tomorrow" , value ="")
-    embed.add_field(name="s today",value ="")
-    embed.add_field(name="s weekly" , value ="")
-    embed.add_field(name="s open" , value = "")
-    embed.add_field(name="s [Day of current week]",value = "['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']")
+    embed = discord.Embed(colour=000000,title="Bot Commands")  
+    
+    embed.set_author(name="Creator : tenma_kenzo_ + BladeZ (ez)" , url = "")
+
+    embed.set_thumbnail(url="https://www.artmajeur.com/medias/standard/t/a/tatjana-siadova/artwork/13448606_2953a.jpg")
+    embed.add_field(name="/clear [n]" , value="n = number of messages",inline=False)
+    embed.add_field(name="/s tomorrow" , value ="Tomorrow's schedule",inline=False)
+    embed.add_field(name="/s today",value ="Today's schedule",inline=False)
+    embed.add_field(name="/s weekly" , value ="Weeekly  schedule",inline=False)
+    embed.add_field(name="/s open" , value = "Shows if restaurant is open",inline=False)
+    embed.add_field(name="/s [Day of current week]",value = "['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']",inline=False)
+    embed.set_footer(text=f"Requested by <@{ctx.author}>",icon_url=ctx.author.avatar)
+    
     await ctx.send(embed=embed)
 
 
@@ -90,7 +80,7 @@ async def clear (ctx, limit: int):
 @client.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
-        await ctx.send("Command does not exist use [/sh]")
+        await ctx.send("Command does not exist use [/help]")
 
 
 
