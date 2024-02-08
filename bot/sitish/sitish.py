@@ -134,12 +134,8 @@ def get_current_day_and_week(arg):
     
     #fai gia thn epomenh mera
     if choice == "tomorrow":
-
-       
-        day_of_week = 0 if day_of_week == 6 else day_of_week + 1
         
         day  = str(current_date.day + 1)
-        month = str(current_date.month)
         final = day+"/"+month
     
         
