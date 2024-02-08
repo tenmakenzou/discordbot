@@ -48,6 +48,7 @@ week4 = {
 
 
 
+
 global bonus 
 bonus = 0
 
@@ -64,7 +65,7 @@ def get_current_day_and_week(arg):
     
     current_date = datetime.now()
 
-    week_number = (current_date.day - 1) // 7 + 1 #Current_week_number
+    week_number = ((current_date.day - 1) // 7 + 1) + bonus #Current_week_number
 
     day  = str(current_date.day)
     month = str(current_date.month)
