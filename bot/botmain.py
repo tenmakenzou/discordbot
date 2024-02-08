@@ -41,12 +41,10 @@ async def s(ctx,arg):
             
            
             embed = discord.Embed(colour=000000,title="")  
-        
             embed.set_author(name="" , url = "")
-
             embed.set_thumbnail(url="https://www.artmajeur.com/medias/standard/t/a/tatjana-siadova/artwork/13448606_2953a.jpg")
             embed.add_field(name=(get_current_day_and_week(arg)) , value=" ",inline=False)
-            embed.set_footer(text=f"Requested by <@{ctx.author}>",icon_url=ctx.author.avatar)
+            embed.set_footer(text=f"Requested by <{ctx.author}>",icon_url=ctx.author.avatar)
             
             await ctx.send(embed=embed)
          
