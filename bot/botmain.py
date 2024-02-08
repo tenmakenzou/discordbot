@@ -37,7 +37,7 @@ async def s(ctx,arg):
 
         else:
           
-           # await ctx.send(get_current_day_and_week(arg))
+            #await ctx.send(get_current_day_and_week(arg))
             
            
             embed = discord.Embed(colour=000000,title="")  
