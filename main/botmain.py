@@ -1,4 +1,8 @@
 import discord
+import sys
+sys.path.append("sitish")
+
+
 from sitish import *
 from discord.ext import commands 
 from discord.ext.commands import has_permissions, CheckFailure
@@ -51,7 +55,7 @@ async def s(ctx,arg):
 
 
 @client.command()
-async def helpsitish(ctx):
+async def sh(ctx):
 
 
     embed = discord.Embed(
@@ -63,7 +67,7 @@ async def helpsitish(ctx):
     embed.add_field(name="s tomorrow" , value ="")
     embed.add_field(name="s today",value ="")
     embed.add_field(name="s weekly" , value ="")
-    embed.add_field(name="s schedule" , value = "")
+    embed.add_field(name="s open" , value = "")
     embed.add_field(name="s [Day of current week]",value = "['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']")
     await ctx.send(embed=embed)
 
@@ -86,13 +90,9 @@ async def clear (ctx, limit: int):
 @client.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
-        await ctx.send("Command does not exist use [/helpsitish]")
+        await ctx.send("Command does not exist use [/sh]")
 
-"""
-@client.event
-async def helpmusic(ctx):
-        await ctx.send(set_message())
-"""
+
 
 f = open("token.txt","r")
 token = f.readline()
