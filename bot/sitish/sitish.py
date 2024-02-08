@@ -257,7 +257,7 @@ def get_current_day_and_week(arg):
     
    
     
-    if choice == "schedule":
+    if choice == "open":
            
          
         current_hour = current_date.hour
