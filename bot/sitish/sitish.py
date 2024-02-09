@@ -70,7 +70,6 @@ def get_current_day_and_week(choice):
     days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     
   
-    
     x = days_of_week[day_of_week]
 
     
@@ -95,38 +94,53 @@ def get_current_day_and_week(choice):
     #ebdomadiaio 
     
     if choice == "weekly":
-         weekimage = str(week_number) ; n = "week"+n+".jpg"  
-         return(weekimage)
-   
+        # weekimage = str(week_number) ; n = "week"+n+".jpg"  
+         #print(weekimage)
+         #return(weekimage)
+        if week_number == 1:
+            return("week1.jpg")
+
+        elif week_number == 2:
+            return("week2.jpg")
+                
+        elif week_number == 3:
+            return("week3.jpg")
+             
+        else:
+            return("week4.jpg")    
+    
+    
+    
     if choice in days_of_week:
         return(f"Food for {choice}  : {week[choice]}")
 
     
 
     if choice == "tomorrow":
-        
-        day  = str(current_date.day + 1)
-        final = day+"/"+month
-    
-        
-          
-        if week_number == 1:
-            return(f"Food for {x} [{final}] : \n\n{week1[x][0]}\n\n{week1[x][1]}\n\n{week1[x][2]}")
 
-        elif week_number == 2:
-            return(f"Food for {x} [{final}] : \n\n{week2[x][0]}\n\n{week2[x][1]}\n\n{week2[x][2]}")
-       
-        elif week_number == 3:
-            return(f"Food for {x} [{final}] : \n\n{week3[x][0]}\n\n{week3[x][1]}\n\n{week3[x][2]}")
-                     
-        else:      
-             return(f"Food for {x} [{final}] : \n\n{week4[x][0]}\n\n{week4[x][1]}\n\n{week4[x][2]}")
         
-    
-    
-   
-    
-    if choice == "open":
+            day_of_week = 0 if day_of_week == 6 else day_of_week + 1
+            
+            day  = str(current_date.day + 1)
+            month = str(current_date.month)
+            final = day+"/"+month
+        
+
+            
+            if week_number == 1:
+                return(f"Food for {days_of_week[day_of_week]} [{final}] : {week1[days_of_week[day_of_week]]}")
+
+            elif week_number == 2:
+                return(f"Food for {days_of_week[day_of_week]} [{final}] : {week2[days_of_week[day_of_week]]}")
+                            
+            elif week_number == 3:
+                return (f"Food for {days_of_week[day_of_week]} [{final}] : {week3[days_of_week[day_of_week]]}")
+                        
+            else:      
+                return(f"Food for {days_of_week[day_of_week]} [{final}] : {week4[days_of_week[day_of_week]]}")
+            
+        
+    if choice == "open" or choice =="when" or choice =="schedule":
            
          
         current_hour = current_date.hour
