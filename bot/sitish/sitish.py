@@ -112,6 +112,7 @@ def get_current_day_and_week(choice):
     
     
     if choice in days_of_week:
+        
         return(f"Food for {choice}  : {week[choice]}")
 
     
