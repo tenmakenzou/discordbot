@@ -49,27 +49,40 @@ week4 = {
 	
 
 
-global bonus 
-bonus = 0
-
-
 def get_current_day_and_week(choice):
     
     current_date = datetime.now()
+  
+ 
+ 
+    first_day_of_month = datetime(current_date.year, current_date.month, 1)
+    days_into_month = (current_date - first_day_of_month).days
+    week_number = (days_into_month // 7) + 1
 
-    week_number = ((current_date.day - 1) // 7 + 1)  + bonus #Current_week_number
-
+    
     day  = str(current_date.day)
     month = str(current_date.month)
     final = day+"/"+month
     
     day_of_week = current_date.weekday() # Day of week
+
+    
     
     days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     
   
+    if day_of_week == 0 :
+        week_number += 1
+        if week_number >=5:
+            week_number = 1
+  
+  
     x = days_of_week[day_of_week]
     choice = choice.capitalize()
+    
+    
+    
+    
     
     
     if week_number == 1:
@@ -155,22 +168,4 @@ def get_current_day_and_week(choice):
             elif current_time < 18.00:
                 next_opening_time = "18:00"
                 return (f"**Η σιτίση είναι κλείστη , ανοίγει στις [{next_opening_time}] και εχει :\n{week[x][2]}**")
-
-
-
-
-def changeweek(opt):
-    
-    global bonus
-    if opt == 1:
-        bonus += 1
-        return ("Current week has been increased")
-    
-    if opt == -1:
-       
-        bonus -= 1
-        return ("Current week has been decreased")
-    
-    if bonus > 4 or bonus < 1 :
-        bonus = 0
 

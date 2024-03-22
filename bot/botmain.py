@@ -1,9 +1,9 @@
 import discord
-import sys
-sys.path.append("sitish")
+
 
 
 from sitish import *
+from library import *
 from discord.ext import commands 
 from discord.ext.commands import has_permissions, CheckFailure
 
@@ -17,6 +17,8 @@ client.remove_command("help")
 
 
 
+
+
 @client.event
 async def on_ready():
     print("Bot is running!")
@@ -25,17 +27,17 @@ async def on_ready():
     
 
 
-
 @client.command()
-async def poll(ctx,arg):
-    
+async def poll(ctx,*,arg):
+
     message = await ctx.send(arg)
     emoji1 = '\N{THUMBS UP SIGN}'
     emoji2 = '\N{THUMBS DOWN SIGN}'
     await message.add_reaction(emoji1)
     await message.add_reaction(emoji2)
-    
 
+
+    
 @client.command()
 @commands.cooldown(1, 5, type=commands.BucketType.user) # 5 second cooldown
 
@@ -78,20 +80,33 @@ async def help(ctx):
     embed.add_field(name="/s open , schedule , when" , value = "Shows if restaurant is open",inline=False)
     embed.add_field(name="/s [Day of current week]",value = "['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']",inline=False)
     embed.add_field(name="/poll" , value = "simple yes/no poll",inline=False)
+    embed.add_field(name="/b" , value ="Shows if library is open",inline=False)
+    embed.add_field(name="/services" , value ="Shows services of uni",inline=False)
     embed.set_footer(text=f"Requested by {ctx.author}",icon_url=ctx.author.avatar)
     
     await ctx.send(embed=embed)
 
 
+@client.command()
+async def b(ctx):
+            embed = discord.Embed(colour=000000,title="")  
+            embed.set_author(name="" , url = "")
+            embed.add_field(name=" ", value=(get_library()),inline=False)
+            embed.set_footer(text=f"Requested by {ctx.author}",icon_url=ctx.author.avatar)
+            
+            await ctx.send(embed=embed)
+         
 
 
-@client.command(pass_context=True)
-@has_permissions(administrator=True)
-async def changesitish(ctx , arg):
-        
-        await ctx.send(changeweek(int(arg)))
-        
-
+@client.command()
+async def services(ctx):
+            embed = discord.Embed(colour=000000,title="")  
+            embed.set_author(name="" , url = "")
+            embed.add_field(name="Eclass", value="https://eclass.uniwa.gr/",inline=False)
+            embed.add_field(name="Services", value="https://sso.uniwa.gr/login?service=https%3A%2F%2Fservices.uniwa.gr%2Flogin%2Fcas",inline=False)
+            embed.set_footer(text=f"Requested by {ctx.author}",icon_url=ctx.author.avatar)
+            
+            await ctx.send(embed=embed)
 
 @client.command(pass_context=True)
 @has_permissions(administrator=True) #clear messages
