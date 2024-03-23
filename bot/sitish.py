@@ -70,12 +70,8 @@ def get_current_day_and_week(choice):
     
     days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     
-  
-    if day_of_week == 0 :
-        week_number += 1
-        if week_number >=5:
-            week_number = 1
-  
+
+
   
     x = days_of_week[day_of_week]
     choice = choice.capitalize()
