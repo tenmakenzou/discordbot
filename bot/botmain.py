@@ -1,11 +1,12 @@
 import discord
 
 
-
 from sitish import *
 from library import *
+
 from discord.ext import commands 
 from discord.ext.commands import has_permissions, CheckFailure
+
 
 
 
@@ -17,13 +18,13 @@ client.remove_command("help")
 
 
 
-
-
 @client.event
 async def on_ready():
     print("Bot is running!")
     print("Week has been reset!")
     await client.change_presence(activity=discord.Game(name="/help"))
+        
+
     
 
 
@@ -113,10 +114,14 @@ async def services(ctx):
 async def clear (ctx, limit: int):
         await ctx.channel.purge(limit=limit+1)
 
+
 @client.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
         await ctx.send("Command does not exist use [/help]")
+
+
+
 
 
 

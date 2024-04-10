@@ -1,5 +1,5 @@
-
-from datetime import datetime,time
+import time
+from datetime import  date,datetime
 
 
 
@@ -49,15 +49,18 @@ week4 = {
 	
 
 
+
+def get_week_index(old_date: date) -> int:
+    today = date.fromtimestamp(time.time())
+    return (abs(old_date - today).days // 7) % 4
+   
+    
+
 def get_current_day_and_week(choice):
     
     current_date = datetime.now()
   
  
- 
-    first_day_of_month = datetime(current_date.year, current_date.month, 1)
-    days_into_month = (current_date - first_day_of_month).days
-    week_number = (days_into_month // 7) + 1
 
     
     day  = str(current_date.day)
@@ -65,26 +68,18 @@ def get_current_day_and_week(choice):
     final = day+"/"+month
     
     day_of_week = current_date.weekday() # Day of week
-
-    
     
     days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     
-  
-    if day_of_week == 0 :
-        week_number += 1
-        if week_number >=5:
-            week_number = 1
-  
-  
+
     x = days_of_week[day_of_week]
     choice = choice.capitalize()
     
     
+    d = date(2024,1,19)
     
-    
-    
-    
+    week_number = get_week_index(d)
+
     if week_number == 1:
         week = week1
 
@@ -97,6 +92,7 @@ def get_current_day_and_week(choice):
     else:
         week = week4
 
+    
     #Current 
     if choice == "Today":
         return(f"**Food for {x} [{final}] : \n\n{week[x][0]}\n\n{week[x][1]}\n\n{week[x][2]}**")
@@ -168,4 +164,5 @@ def get_current_day_and_week(choice):
             elif current_time < 18.00:
                 next_opening_time = "18:00"
                 return (f"**Η σιτίση είναι κλείστη , ανοίγει στις [{next_opening_time}] και εχει :\n{week[x][2]}**")
+
 
