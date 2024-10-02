@@ -1,9 +1,8 @@
 import discord
+import os
 
-
-from sitish import *
 from library import *
-
+from sitish import *
 from discord.ext import commands 
 from discord.ext.commands import has_permissions, CheckFailure
 
@@ -21,7 +20,6 @@ client.remove_command("help")
 @client.event
 async def on_ready():
     print("Bot is running!")
-    print("Week has been reset!")
     await client.change_presence(activity=discord.Game(name="/help"))
         
 
@@ -42,22 +40,10 @@ async def poll(ctx,*,arg):
 @client.command()
 @commands.cooldown(1, 5, type=commands.BucketType.user) # 5 second cooldown
 
-async def s(ctx,arg):
-
-        
-        if arg == "weekly":
-             await ctx.send(file = discord.File(get_current_day_and_week(arg)))
-
-        elif arg == "weeks":
-             await ctx.send(file = discord.File("week1.jpg")) 
-             await ctx.send(file = discord.File("week2.jpg"))
-             await ctx.send(file = discord.File("week3.jpg"))
-             await ctx.send(file = discord.File('week4.jpg'))                     
-        else:
-
+async def s(ctx):
             embed = discord.Embed(colour=000000,title="")  
             embed.set_author(name="" , url = "")
-            embed.add_field(name=" ", value=(get_current_day_and_week(arg)),inline=False)
+            embed.add_field(name=" ", value=(run()),inline=False)
             embed.set_footer(text=f"Requested by {ctx.author}",icon_url=ctx.author.avatar)
             
             await ctx.send(embed=embed)
@@ -125,7 +111,7 @@ async def on_command_error(ctx, error):
 
 
 
-f = open("token.txt","r")
-token = f.readline()
-f.close()
-client.run(str(token))
+
+token = os.getenv('TOKEN')
+print(token)
+client.run(token)
