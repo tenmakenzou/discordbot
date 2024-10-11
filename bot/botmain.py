@@ -26,16 +26,6 @@ async def on_ready():
     
 
 
-@client.command()
-async def poll(ctx,*,arg):
-
-    message = await ctx.send(arg)
-    emoji1 = '\N{THUMBS UP SIGN}'
-    emoji2 = '\N{THUMBS DOWN SIGN}'
-    await message.add_reaction(emoji1)
-    await message.add_reaction(emoji2)
-
-
     
 @client.command()
 @commands.cooldown(1, 5, type=commands.BucketType.user) # 5 second cooldown
@@ -57,17 +47,11 @@ async def help(ctx):
 
     embed = discord.Embed(colour=000000,title="Bot Commands")  
     
-    embed.set_author(name="Creator : tenma_kenzo_ + BladeZ (ez)" , url = "")
+    embed.set_author(name="Creator : tenma_kenzo_ + mr.pancakes" , url = "")
 
     embed.set_thumbnail(url="https://www.artmajeur.com/medias/standard/t/a/tatjana-siadova/artwork/13448606_2953a.jpg")
-    embed.add_field(name="/s today",value ="Today's schedule",inline=False)
-    embed.add_field(name="/s tomorrow" , value ="Tomorrow's schedule",inline=False)
-    embed.add_field(name="/s weekly" , value ="Weeekly  schedule",inline=False)
-    embed.add_field(name="/s weeks" , value ="Shows all weeks",inline=False)
-    embed.add_field(name="/s open , schedule , when" , value = "Shows if restaurant is open",inline=False)
-    embed.add_field(name="/s [Day of current week]",value = "['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']",inline=False)
-    embed.add_field(name="/poll" , value = "simple yes/no poll",inline=False)
-    embed.add_field(name="/b" , value ="Shows if library is open",inline=False)
+    embed.add_field(name="/s",value ="Today's schedule",inline=False)
+    embed.add_field(name="/b" , value ="Shows if library/restauraunt is open",inline=False)
     embed.add_field(name="/services" , value ="Shows services of uni",inline=False)
     embed.set_footer(text=f"Requested by {ctx.author}",icon_url=ctx.author.avatar)
     
@@ -79,6 +63,7 @@ async def b(ctx):
             embed = discord.Embed(colour=000000,title="")  
             embed.set_author(name="" , url = "")
             embed.add_field(name=" ", value=(get_library()),inline=False)
+            embed.add_field(name=" ", value=(get_restauraunt()),inline=False)
             embed.set_footer(text=f"Requested by {ctx.author}",icon_url=ctx.author.avatar)
             
             await ctx.send(embed=embed)
