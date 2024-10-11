@@ -97,27 +97,31 @@ def run():
     if x in week_4:
         y = 71
 
-
     def get_date(x, y):
         count = 0
-        result = ""  # Initialize an empty string to store the output
+        result = ""  
         
         for cell in sheet[x[0]][y:]:
             if cell.value is not None:
-                if not isinstance(cell.value, datetime):
-                    if count == 0:
-                        result += "\n*** Μεσημεριανό ***\n"  # Add Lunch header
-                    if count == 3:
-                        result += "\n*** Δείπνο ***\n"  # Add Dinner header
-                    
-                    result += f"- {cell.value}\n"  # Append the menu item to the result string
-                    count += 1
-                    if count == 6:
-                        break
+                if cell.value != " ":
+                    if cell.value != "":
+                         if not isinstance(cell.value, datetime):
+                                if not isinstance(cell.value,datetime):
+                                    if count == 0:
+                                        
+                                        result += "\n***Πρωινό***\n"  
+                                        result += '-Γάλα φρέσκο ζεστό ή κρύο, Τσάι σε διάφορες γεύσεις, μαρμελάδες σε διάφορες γεύσεις, Μαργαρίνη, Μέλι, Φρυγανιές σίτου, Ψωμί, Κέικ-Fresh milk hot or cold, Tea in various flavors, jams in various flavors, Margarine, Honey, Wheat toast, Bread, Cake\n'
+                                        result += "\n***Μεσημεριανό***\n"  
+                                    
+                                    if count == 3:
+                                        result += "\n***Δείπνο***\n"  
+                                    
+                                    result += f"- {cell.value}\n"  
+                                    count += 1
+                                    if count == 5:
+                                        break
         
-        return result  # Return the concatenated string
+        return result  
 
     help = get_date(x,y)
     return help
-
-help = run()
