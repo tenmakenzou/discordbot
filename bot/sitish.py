@@ -1,7 +1,6 @@
 import openpyxl
 from datetime import datetime
 
-# will optimise later
 
 def run():
 
@@ -97,29 +96,29 @@ def run():
     if x in week_4:
         y = 71
 
+
+    lista = ['Δευτέρα-Monday','Τρίτη-Tuesday','Τετάρτη-Wednesday','Πέμπτη-Thursday','Παρασκευή-Friday','Σάββατο-Saturday','Κυριακή-Sunday']
+
+
     def get_date(x, y):
         count = 0
         result = ""  
         
         for cell in sheet[x[0]][y:]:
-            if cell.value is not None:
-                if cell.value != " ":
-                    if cell.value != "":
-                         if not isinstance(cell.value, datetime):
-                                if not isinstance(cell.value,datetime):
-                                    if count == 0:
+            if cell.value not in (None, " ", "") and not isinstance(cell.value, datetime) and cell.value not in lista:
+               if count == 0:
                                         
-                                        result += "\n***Πρωινό***\n"  
-                                        result += '- Γάλα φρέσκο ζεστό ή κρύο, Τσάι σε διάφορες γεύσεις, μαρμελάδες σε διάφορες γεύσεις, Μαργαρίνη, Μέλι, Φρυγανιές σίτου, Ψωμί, Κέικ-Fresh milk hot or cold, Tea in various flavors, jams in various flavors, Margarine, Honey, Wheat toast, Bread, Cake\n'
-                                        result += "\n***Μεσημεριανό***\n"  
+                    result += "\n***Πρωινό***\n"  
+                    result += '- Γάλα φρέσκο ζεστό ή κρύο, Τσάι σε διάφορες γεύσεις, μαρμελάδες σε διάφορες γεύσεις, Μαργαρίνη, Μέλι, Φρυγανιές σίτου, Ψωμί, Κέικ-Fresh milk hot or cold, Tea in various flavors, jams in various flavors, Margarine, Honey, Wheat toast, Bread, Cake\n'
+                    result += "\n***Μεσημεριανό***\n"  
                                     
-                                    if count == 3:
-                                        result += "\n***Δείπνο***\n"  
+               if count == 3:
+                    result += "\n***Δείπνο***\n"  
                                     
-                                    result += f"- {cell.value}\n"  
-                                    count += 1
-                                    if count == 5:
-                                        break
+               result += f"- {cell.value}\n"  
+               count += 1
+               if count == 5:
+                  break
         
         return result  
 
