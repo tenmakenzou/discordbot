@@ -15,8 +15,11 @@ def run():
                     if cell.value.date() == target_date.date():  
                      
                         return cell.coordinate
-
+  
     x = get_row()
+
+    if len(x)<3: #because first week only gives 2 digits instead of the minimum 3
+        x += " "
     
     lista = ['Δευτέρα-Monday','Τρίτη-Tuesday','Τετάρτη-Wednesday','Πέμπτη-Thursday','Παρασκευή-Friday','Σάββατο-Saturday','Κυριακή-Sunday',None," ",""] # list of objects to avoid printing
 
@@ -42,4 +45,4 @@ def run():
         return result  
 
 
-    return get_date(x)
+    return get_date(x) #returning food as a string
