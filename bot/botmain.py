@@ -53,7 +53,9 @@ async def help(ctx):
     embed.add_field(name="/s",value ="Today's schedule",inline=False)
     embed.add_field(name="/b" , value ="Shows if library/restauraunt is open",inline=False)
     embed.add_field(name="/services" , value ="Shows services of uni",inline=False)
+    embed.add_field(name="Github" , value ="https://github.com/tenmakenzou/discordbot/",inline=False)
     embed.set_footer(text=f"Requested by {ctx.author}",icon_url=ctx.author.avatar)
+
     
     await ctx.send(embed=embed)
 
