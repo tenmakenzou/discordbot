@@ -28,16 +28,14 @@ def run():
         for cell in sheet[x[0]][int(x[1]+x[2]):]: #column[x[0]] and column number x[1],[2]
             if not isinstance(cell.value, datetime) and cell.value not in lista:
                if count == 0:
-                                        
-                    result += "\n***Πρωινό***\n"  
-                    result += '- Γάλα φρέσκο ζεστό ή κρύο, Τσάι σε διάφορες γεύσεις, μαρμελάδες σε διάφορες γεύσεις, Μαργαρίνη, Μέλι, Φρυγανιές σίτου, Ψωμί, Κέικ-Fresh milk hot or cold, Tea in various flavors, jams in various flavors, Margarine, Honey, Wheat toast, Bread, Cake\n'
-                    result += "\n***Μεσημεριανό***\n"  
+                    result += '\n***Πρωινό***\n- Γάλα φρέσκο ζεστό ή κρύο, Τσάι σε διάφορες γεύσεις, μαρμελάδες σε διάφορες γεύσεις, Μαργαρίνη, Μέλι, Φρυγανιές σίτου, Ψωμί, Κέικ-Fresh milk hot or cold, Tea in various flavors, jams in various flavors, Margarine, Honey, Wheat toast, Bread, Cake\n\n***Μεσημεριανό***\n'
                                     
                if count == 3:
                     result += "\n***Δείπνο***\n"  
                                     
                result += f"- {cell.value}\n"  
                count += 1
+               
                if count == 5:
                   break
         
