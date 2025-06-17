@@ -30,10 +30,10 @@ async def on_ready():
 @client.command()
 @commands.cooldown(1, 5, type=commands.BucketType.user) # 5 second cooldown
 
-async def s(ctx):
+async def s(ctx,arg):
             embed = discord.Embed(colour=000000,title="")  
             embed.set_author(name="" , url = "")
-            embed.add_field(name=" ", value=(run()),inline=False)
+            embed.add_field(name=" ", value=(run(arg)),inline=False)
             embed.set_footer(text=f"Requested by {ctx.author}",icon_url=ctx.author.avatar)
             
             await ctx.send(embed=embed)
@@ -50,7 +50,8 @@ async def help(ctx):
     embed.set_author(name="Creator : tenma_kenzo_ + mr.pancakes" , url = "")
 
     embed.set_thumbnail(url="https://www.artmajeur.com/medias/standard/t/a/tatjana-siadova/artwork/13448606_2953a.jpg")
-    embed.add_field(name="/s",value ="Today's schedule",inline=False)
+    embed.add_field(name="/s today",value ="Today's schedule",inline=False)
+    embed.add_field(name="/s tomorrow",value ="Today's schedule",inline=False)
     embed.add_field(name="/b" , value ="Shows if library/restauraunt is open",inline=False)
     embed.add_field(name="/services" , value ="Shows services of uni",inline=False)
     embed.add_field(name="Github" , value ="https://github.com/tenmakenzou/discordbot/",inline=False)
@@ -92,10 +93,6 @@ async def clear (ctx, limit: int):
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
         await ctx.send("Command does not exist use [/help]")
-
-
-
-
 
 
 
