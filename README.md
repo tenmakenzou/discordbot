@@ -1,1 +1,3 @@
-A discord bot that I made for my university services.
+Ενα Discord bot που δημιουργήθηκε για τις απαίτησεις του πανεπιστήμιου δυτίκης αττικής 
+
+(documentation soon)
